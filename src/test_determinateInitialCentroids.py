@@ -1,3 +1,4 @@
+import random
 from unittest import TestCase
 
 from determinateInitialCentroids import DeterminateInitialCentroids
@@ -23,15 +24,16 @@ class TestDeterminateInitialCentroids(TestCase):
         self.assertIsNone(self.d.randomCentroids(t0))
         t1=(1)
         self.assertIsNone(self.d.randomCentroids(t1))
-        t1=(1,2)
+        t2=(1,2)
         self.assertIsNone(self.d.randomCentroids(t2))
 
-        l0={}
-        self.assertIsNone(self.d.randomCentroids(l0))
-        l1=(1)
-        self.assertIsNone(self.d.randomCentroids(l1))
-        l1=(1,2)
-        self.assertIsNone(self.d.randomCentroids(l2))
+        d0={}
+        self.assertIsNone(self.d.randomCentroids(d0))
+        d1=(1)
+        self.assertIsNone(self.d.randomCentroids(d1))
+        d2=(1,2)
+        self.assertIsNone(self.d.randomCentroids(d2))
+
 
         a3=[1,2,3]
         c1,c2,c3 = self.d.randomCentroids(a3)
@@ -39,24 +41,31 @@ class TestDeterminateInitialCentroids(TestCase):
         self.assertIn(c1,a3)
         self.assertIn(c2,a3)
         self.assertIn(c3,a3)
+        self.assertNotEqual(c1,c2)
+        self.assertNotEqual(c3,c2)
 
-        t3=(1,2,3)
-        c1,c2,c3 = self.d.randomCentroids(t3)
-        self.assertEqual(t3,(1,2,3))
-        self.assertIn(c1,a3)
-        self.assertIn(c2,a3)
-        self.assertIn(c3,a3)
+        # t3=(1,2,3)
+        # c1,c2,c3 = self.d.randomCentroids(t3)
+        # self.assertEqual(t3,(1,2,3))
+        # self.assertIn(c1,a3)
+        # self.assertIn(c2,a3)
+        # self.assertIn(c3,a3)
 
-        l3={1,2,3}
-        c1,c2,c3 = self.d.randomCentroids(l3)
-        self.assertEqual(l3,(1,2,3))
-        self.assertIn(c1,a3)
-        self.assertIn(c2,a3)
-        self.assertIn(c3,a3)
+        # d3={1,2,3}
+        # c1,c2,c3 = self.d.randomCentroids(t3)
+        # self.assertEqual(t3,{1,2,3})
+        # self.assertIn(c1,a3)
+        # self.assertIn(c2,a3)
+        # self.assertIn(c3,a3)
 
 
-        # TODO TEST random array, list and tupple
-
+        a4=random.sample(range(1, 100), 99)
+        c1,c2,c3 = self.d.randomCentroids(a4)
+        self.assertIn(c1, a4)
+        self.assertIn(c2, a4)
+        self.assertIn(c3, a4)
+        self.assertNotEqual(c1, c2)
+        self.assertNotEqual(c3, c2)
         pass
 
     def test_binSearchCentroids(self):

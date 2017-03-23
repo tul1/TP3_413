@@ -1,10 +1,12 @@
 '''
-La classe CalculateNewCentroid a des differente metodes parmi lesqueles ils sont:
-    + Average: qui calcule en faisant un
-    + ...
+La classe CalculateNewCentroid sert a determiner le nouveau centroides d'un cluster de differentes manieres.
+Les metode de la classe sont:
+    + average determine le nouveau centroid en calcular une moyenne des valeurs.
+    +
 
 On a valide les entrees des fonction.
-Si l'argument n'est pas bon la fonction returne None
+Si les arguments passes au metodes ne sont pas bon la metode returne None.
+Cette fonctions de cette classe peut recevoir listes, tuples ou bien dictionnaires.
 '''
 
 class CalculateNewCentroid:

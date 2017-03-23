@@ -8,6 +8,7 @@ Les metode de la classe sont:
 
 On a valide les entrees des fonction.
 Si les arguments passes au metodes ne sont pas bon la metode returne None.
+TODO developper une solution pour les tuples et les dictionnaires
 '''
 
 import random
@@ -16,16 +17,20 @@ import copy
 
 class DeterminateInitialCentroids:
     def randomCentroids(self, array):
-        if array!=None:
+        if array!=None and isinstance(array, (list, tuple, dict)) and len(array)>2:
+            if isinstance(array, (tuple, dict)):
+                print "no develop yet!"
+                return None
             aux = copy.copy(array)
             centre1=random.choice(aux)
-            aux.pop(centre1)
+            aux.pop(aux.index(centre1))
             centre2=random.choice(aux)
-            aux.pop(centre2)
+            aux.pop(aux.index(centre2))
             centre3=random.choice(aux)
             return centre1, centre2, centre3
         return None
 
     def binSearchCentroids(self,array):
         aux=array
+        # TODO
         pass

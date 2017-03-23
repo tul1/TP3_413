@@ -1,41 +1,56 @@
-from src.calculateNewCentroid import CalculateNewCentroid as c
-from src.determinateInitialCentroids import DeterminateInitialCentroids as cs
-from src.mesureDistance import MesureDistance as m
+import copy
+from calculateNewCentroid import CalculateNewCentroid
+from determinateInitialCentroids import DeterminateInitialCentroids
+from mesureDistance import MesureDistance
 
-class kMeans:
-    # TODO meter los cluster como atributos de la clase
-    # self.cluster1
-    # self.cluster2
-    # self.cluster3
+class KMeans:
+    def __init__(self):
+        pass
 
-    def setupClusters(array):
-        cluster1=[]
-        cluster2=[]
-        cluster3=[]
-        oldCentroid_1 = oldCentroid_2 = oldCentroid_3 = newCentroid_1 = newCentroid_2 = newCentroid_3 = None
+    def setupClusters(self,collection):
+        if collection==None or not isinstance(collection,(list,tuple,dict)) or len(collection)<3:
+            return None
+
+        self.rawData_ = collection
+
+        oldCentroidCluster1 = oldCentroidCluster2 = oldCentroidCluster3 = None
+        newCentroidCluster1 = newCentroidCluster2 = newCentroidCluster3 = None
+
+        cs = DeterminateInitialCentroids()
+        m = MesureDistance()
+        c = CalculateNewCentroid()
 
         # TODO poner un callback generico
-        cs.randomCentroids(array, newCentroid_1, newCentroid_2, newCentroid_3)
+        newCentroidCluster1, newCentroidCluster2, newCentroidCluster3 = cs.randomCentroids(self.rawData_)
 
-        while oldCentroid_1 != newCentroid_1 or oldCentroid_2 != newCentroid_2 or oldCentroid_3 != newCentroid_3:
-            cluster1 = []
-            cluster2 = []
-            cluster3 = []
-            oldCentroid_1 = newCentroid_1
-            oldCentroid_2 = newCentroid_2
-            oldCentroid_3 = newCentroid_3
-            for element in array:
+        while oldCentroidCluster1 != newCentroidCluster1 \
+                or oldCentroidCluster2 != newCentroidCluster2 \
+                or oldCentroidCluster3 != newCentroidCluster3:
+            self.cluster1_ = []
+            self.cluster2_ = []
+            self.cluster3_ = []
+
+            oldCentroidCluster1 = newCentroidCluster1
+            oldCentroidCluster2 = newCentroidCluster2
+            oldCentroidCluster3 = newCentroidCluster3
+            for element in self.rawData_:
                 # TODO poner un callback generico
-                d1=m.euclidian(oldCentroid_1, element)
-                d2=m.euclidian(oldCentroid_2, element)
-                d3=m.euclidian(oldCentroid_3, element)
-                if d1<d2 and d1<d3: cluster1.append(element)
-                if d2<d1 and d2<d3: cluster2.append(element)
-                if d3<d1 and d3<d2: cluster3.append(element)
-            newCentroid_1 = c.average(cluster1)
-            newCentroid_2 = c.average(cluster2)
-            newCentroid_3 = c.average(cluster3)
-        return cluster1, cluster2, cluster3
 
-    def addElementToCluster(val):
+                d1 = m.euclidian(oldCentroidCluster1, element)
+                d2 = m.euclidian(oldCentroidCluster2, element)
+                d3 = m.euclidian(oldCentroidCluster3, element)
+
+                if d1 < d2 and d1 <= d3:
+                    self.cluster1_.append(element)
+                if d2 <= d1 and d2 < d3:
+                    self.cluster2_.append(element)
+                if d3 < d1 and d3 <= d2:
+                    self.cluster3_.append(element)
+
+            newCentroidCluster1 = c.average(self.cluster1_)
+            newCentroidCluster2 = c.average(self.cluster2_)
+            newCentroidCluster3 = c.average(self.cluster3_)
+        return self.cluster1_, self.cluster2_, self.cluster3_
+
+    def addElementToCluster(self,val):
         pass
