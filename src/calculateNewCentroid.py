@@ -7,6 +7,9 @@ Les metode de la classe sont:
 On a valide les entrees des fonction.
 Si les arguments passes au metodes ne sont pas bon la metode returne None.
 Cette fonctions de cette classe peut recevoir listes, tuples ou bien dictionnaires.
+
+TODO generaliser pour calculer des moyennes des vecteurs
+
 '''
 
 class CalculateNewCentroid:

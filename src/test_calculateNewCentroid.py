@@ -15,8 +15,8 @@ class TestCalculateNewCentroid(TestCase):
         risingCountArray0 = []
         self.assertIsNone(self.c.average(risingCountArray0))
 
-        risingCountArray1 = [1, 1, 1, 1]
-        self.assertEqual(self.c.average(risingCountArray1),1)
+        onesArray1 = [1, 1, 1, 1]
+        self.assertEqual(self.c.average(onesArray1),1)
 
         risingCountArray2=[1,2,3,4]
         self.assertEqual(self.c.average(risingCountArray2),2.5)
@@ -32,5 +32,8 @@ class TestCalculateNewCentroid(TestCase):
 
         risingCountTupple2 = (2,2,3,'2')
         self.assertIsNone(self.c.average(risingCountTupple2),2.5)
+
+        onesVectorArray1 = [[1,1], [1,1], [1,1], [1,1]]
+        self.assertEqual(self.c.average(onesVectorArray1), [1,1])
 
         pass
