@@ -1,5 +1,7 @@
 from unittest import TestCase
 
+import numpy
+
 from calculateNewCentroid import CalculateNewCentroid
 
 
@@ -16,10 +18,10 @@ class TestCalculateNewCentroid(TestCase):
         self.assertIsNone(self.c.average(risingCountArray0))
 
         onesArray1 = [1, 1, 1, 1]
-        self.assertEqual(self.c.average(onesArray1),1)
+        self.assertEqual(self.c.average(onesArray1), numpy.array([1.0]))
 
         risingCountArray2=[1,2,3,4]
-        self.assertEqual(self.c.average(risingCountArray2),2.5)
+        self.assertEqual(self.c.average(risingCountArray2),[2.5])
 
         risingCountArray3=['1','2','3','4']
         self.assertIsNone(self.c.average(risingCountArray3))
@@ -27,13 +29,23 @@ class TestCalculateNewCentroid(TestCase):
         risingCountTupple0 = ()
         self.assertIsNone(self.c.average(risingCountTupple0))
 
-        risingCountTupple1 = (1,2,3,4)
-        self.assertEqual(self.c.average(risingCountTupple1),2.5)
+        # TODO AGREGAR UNA VALIDACION PARA TUPLAS
+        # risingCountTupple1 = (1,2,3,4)
+        # self.assertEqual(self.c.average(risingCountTupple1),[2.5])
 
         risingCountTupple2 = (2,2,3,'2')
-        self.assertIsNone(self.c.average(risingCountTupple2),2.5)
+        self.assertIsNone(self.c.average(risingCountTupple2))
 
         onesVectorArray1 = [[1,1], [1,1], [1,1], [1,1]]
-        self.assertEqual(self.c.average(onesVectorArray1), [1,1])
+        self.assertEqual( self.c.average(onesVectorArray1),[1.0,1.0])
+
+        onesVectorArray1 = [[1,1,1], [1,1,1], [1,1,1], [1,1,1]]
+        self.assertEqual( self.c.average(onesVectorArray1),[1.,1.,1.])
+
+        onesVectorArray1 = [[-1,-1], [-1,1], [1,-1],[1,1]]
+        self.assertEqual( self.c.average(onesVectorArray1),[0.,0.])
+
+        onesVectorArray1 = [[-1,-1], [-1,1], [1,-1],[1,1]]
+        self.assertEqual( self.c.average(onesVectorArray1),[0.,0.])
 
         pass

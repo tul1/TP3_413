@@ -27,7 +27,7 @@ class DeterminateInitialCentroids:
             centre2=random.choice(aux)
             aux.pop(aux.index(centre2))
             centre3=random.choice(aux)
-            return centre1, centre2, centre3
+            return centre1['array'], centre2['array'], centre3['array']
         return None
 
     def binSearchCentroids(self,array):
