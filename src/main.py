@@ -30,10 +30,12 @@ def printResults(clusters):
         porcenSetosa=(100*setosa/inputDataSize)
         porcenVirginica=(100*virginica/inputDataSize)
         print "------------------- Results -------------------"
-        print 'Centroid: ' + str(centroidCluster1)
+        print 'Centroid: ' + str(cluster['centroid'])
         print 'Versicolor: ' + str(porcenVersicolor)
         print 'Setosa: ' + str(porcenSetosa)
         print 'virginica: ' + str(porcenVirginica)
+
+
 
 
 if __name__ == "__main__":
@@ -41,11 +43,68 @@ if __name__ == "__main__":
 
     rawData=readData(FILE_NAME)
 
-    k = KMeans()
-    cluster1, cluster2, cluster3, centroidCluster1, centroidCluster2, centroidCluster3 = k.setupClusters(rawData)
+    def pretretedInputDataInitialCentroidsFar_averageNewCentroids_euclideanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsFar', 'averageNewCentroids', 'euclideanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
 
-    clusters = ({"cluster":cluster1, "centroid":centroidCluster1},
-              {"cluster":cluster2, "centroid":centroidCluster2},
-              {"cluster": cluster3, "centroid": centroidCluster3})
+    def pretretedInputDataInitialCentroidsFar_averageNewCentroids_manhattanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsFar', 'averageNewCentroids', 'manhattanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
 
-    printResults(clusters)
+    def pretretedInputDataInitialCentroidsFar_medianNewCentroids_euclideanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsFar', 'medianNewCentroids', 'euclideanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+    def pretretedInputDataInitialCentroidsFar_medianNewCentroids_manhattanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsFar', 'medianNewCentroids', 'manhattanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+    def pretretedInputDataInitialCentroidsNear_averageNewCentroids_euclideanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsNear', 'averageNewCentroids', 'euclideanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+
+    def pretretedInputDataInitialCentroidsNear_averageNewCentroids_manhattanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsNear', 'averageNewCentroids', 'manhattanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+    def pretretedInputDataInitialCentroidsNear_medianNewCentroids_euclideanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsNear', 'medianNewCentroids', 'euclideanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+    def pretretedInputDataInitialCentroidsNear_medianNewCentroids_manhattanDistance():
+        k = KMeans('pretretedInputDataInitialCentroidsNear', 'medianNewCentroids', 'manhattanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+
+    def randomInitialCentroids_averageNewCentroids_euclideanDistance():
+        k = KMeans('randomInitialCentroids', 'averageNewCentroids', 'euclideanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+    def randomInitialCentroids_averageNewCentroids_euclideanDistance():
+        k = KMeans('randomInitialCentroids', 'averageNewCentroids', 'euclideanDistance')
+        clusters = k.setupClusters(rawData)
+        # TODO MANDAR A UN ARCHIVO
+        printResults(clusters)
+
+
+    randomInitialCentroids_averageNewCentroids_euclideanDistance()
+    # pretretedInputDataInitialCentroidsNear_averageNewCentroids_euclideanDistance()

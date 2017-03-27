@@ -9,6 +9,7 @@ class TestCalculateNewCentroid(TestCase):
     def setUp(self):
         self.c=CalculateNewCentroid()
         pass
+
     def test_average(self):
 
         self.assertIsNone(self.c.average('w'))
