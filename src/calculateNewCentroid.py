@@ -24,9 +24,7 @@ class CalculateNewCentroid:
         pass
 
     def evalProcess(self,cluster=None):
-        # TODO AGREGAR VALIDACIONES ACA
         if cluster==None: return None
-
         method = getattr(self,self.methodName)
         return method(cluster)
 
