@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from quicksort import quickSort
+from src.quicksort import quickSort
 
 
 class TestQuickSort(TestCase):

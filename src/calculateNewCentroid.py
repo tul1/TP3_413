@@ -3,7 +3,6 @@ La classe CalculateNewCentroid sert a determiner le nouveau centroides d'un clus
 Les methode de la classe sont:
     + average determine le nouveau centroid en calculant une moyenne des valeurs du cluster. 
     + median determine le nouveau centroid en calculant une moyenne des valeurs du cluster. 
-
 On a valide toujours les entrees des fonction.
 Si les arguments passes au metodes ne sont pas bon la metode returne None.
 Argument attendu: 

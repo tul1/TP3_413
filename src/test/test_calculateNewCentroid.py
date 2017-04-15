@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import numpy
 
-from calculateNewCentroid import CalculateNewCentroid
+from src.calculateNewCentroid import CalculateNewCentroid
 
 
 class TestCalculateNewCentroid(TestCase):

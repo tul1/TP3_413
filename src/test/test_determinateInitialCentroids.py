@@ -1,7 +1,7 @@
 import random
 from unittest import TestCase
 
-from determinateInitialCentroids import DeterminateInitialCentroids
+from src.determinateInitialCentroids import DeterminateInitialCentroids
 
 
 class TestDeterminateInitialCentroids(TestCase):

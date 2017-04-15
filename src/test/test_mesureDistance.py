@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import numpy
 
-from mesureDistance import MesureDistance
+from src.mesureDistance import MesureDistance
 
 class TestMesureDistance(TestCase):
     def setUp(self):

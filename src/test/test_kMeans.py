@@ -1,7 +1,7 @@
 import random
 from unittest import TestCase
 
-from kMeans import KMeans
+from src.kMeans import KMeans
 
 
 class TestKMeans(TestCase):
