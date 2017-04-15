@@ -1,10 +1,15 @@
 Pour lancer l'execution du programme il faut executer se suivant commande:
 $python main
 
+Dans './graphs' seront les resultat de tous les tests realises en format PNG.
+Un fichier 'resultatsKMeans.txt' va se generer avec un les resultats des executions des test.
+
 Dependences:
 + matplotlib
 + numpy
 + copy
 + random
 
-Pour le developpement de ce programme on a utiliser l'entourrage de developpement Pycharm.
+Pour le developpement de ce programme on a utiliser l'entourrage de developpement PyCharm.
+
+Le code source se trouve aussi dans le repositoire: https://github.com/tul1/TP3_413
