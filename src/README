@@ -1,0 +1,10 @@
+Pour lancer l'execution du programme il faut executer se suivant commande:
+$python main
+
+Dependences:
++ matplotlib
++ numpy
++ copy
++ random
+
+Pour le developpement de ce programme on a utiliser l'entourrage de developpement Pycharm.
