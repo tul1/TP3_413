@@ -45,7 +45,6 @@ class CalculateNewCentroid:
                 if isinstance(vector['array'],(list))==True:
                     if all(isinstance(item,(float,int,long)) for item in vector['array'])==False:
                         return None
-
                 sum += numpy.array(vector['array'])
             return (sum/len(cluster)).tolist()
         return None
